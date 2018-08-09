@@ -23,12 +23,12 @@
 			    if (Drupal.settings.address_autocomplete.country_selected) {
 						autocomplete = new google.maps.places.Autocomplete(
 			    	/** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-			    	{types: ['geocode'], componentRestrictions: {country: Drupal.settings.address_autocomplete.country_selected}});
+			    	{types: ['address'], componentRestrictions: {country: Drupal.settings.address_autocomplete.country_selected}});
 			    }
 			    else {
 			    	autocomplete = new google.maps.places.Autocomplete(
 			    	/** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-			    	{types: ['geocode']});
+			    	{types: ['address']});
 			    }
 			    
 			  // When the user selects an address from the dropdown, populate the address
