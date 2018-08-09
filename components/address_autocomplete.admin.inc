@@ -1,5 +1,7 @@
 <?php
 
+include_once DRUPAL_ROOT . '/includes/locale.inc';
+
 /**
  * Implementation of hook_form().
  */
