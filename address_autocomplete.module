@@ -91,18 +91,18 @@ function address_autocomplete_webform_component_render_alter(&$element, &$compon
         $element['#attributes']['class'] = array('postal_code');
         break;
     }
+		$module_path = drupal_get_path('module', 'address_autocomplete');
+		// Get API key set in the settings.
+		$api_key = variable_get('api_key');
+		$country_selected = variable_get('country_selected');
+		// Load autocomplete JS.
+		drupal_add_js($module_path . '/js/address-autocomplete.js');
+		if ($country_selected) {
+			drupal_add_js(array('address_autocomplete' => array('country_selected' => $country_selected)), array('type' => 'setting'));
+		}
+		else {
+			drupal_add_js(array('address_autocomplete' => array('country_selected' => '')), array('type' => 'setting'));
+		}
+		drupal_add_js('https://maps.googleapis.com/maps/api/js?key=' . $api_key . '&libraries=places', 'external');
   }
-  $module_path = drupal_get_path('module', 'address_autocomplete');
-  // Get API key set in the settings.
-  $api_key = variable_get('api_key');
-  $country_selected = variable_get('country_selected');
-  // Load autocomplete JS.
-  drupal_add_js($module_path . '/js/address-autocomplete.js');
-  if ($country_selected) {
-    drupal_add_js(array('address_autocomplete' => array('country_selected' => $country_selected)), array('type' => 'setting'));
-  }
-  else {
-    drupal_add_js(array('address_autocomplete' => array('country_selected' => '')), array('type' => 'setting'));
-  }
-	drupal_add_js('https://maps.googleapis.com/maps/api/js?key=' . $api_key . '&libraries=places', 'external');
 }
