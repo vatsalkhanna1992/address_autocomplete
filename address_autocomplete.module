@@ -34,7 +34,6 @@ function address_autocomplete_form_webform_component_defaults_alter(&$defaults, 
  * Implementation of hook_form_webform_component_edit_form_alter().
  */
 function address_autocomplete_form_webform_component_edit_form_alter(&$form, $form_state) {
-  // Add a css class to widget form elements for all fields of type mytype.
   $component = $form_state['build_info']['args'][1];
   $module_path = drupal_get_path('module', 'address_autocomplete');
   if ($component['type'] == 'textfield') {
@@ -66,7 +65,7 @@ function address_autocomplete_form_webform_component_edit_form_alter(&$form, $fo
  * Implementation of hook_webform_component_render_alter().
  */
 function address_autocomplete_webform_component_render_alter(&$element, &$component, $filter = TRUE) {
-  if ($component['type'] == 'textfield' && $component['extra']['autocomplete'] == 1) {
+  if ($component['type'] == 'textfield' && isset($component['extra']['autocomplete'])) {
     
     switch ($component['extra']['select-fields']) {
       case 0:
