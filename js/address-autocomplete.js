@@ -18,18 +18,17 @@
 			  postal_code: 'short_name'
 			};
 			var initAutocomplete = function () {
-				// Create the autocomplete object, restricting the search to geographical
-			  // location types.
-			    if (Drupal.settings.address_autocomplete.country_selected) {
-						autocomplete = new google.maps.places.Autocomplete(
-			    	/** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-			    	{types: ['address'], componentRestrictions: {country: Drupal.settings.address_autocomplete.country_selected}});
-			    }
-			    else {
-			    	autocomplete = new google.maps.places.Autocomplete(
-			    	/** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-			    	{types: ['address']});
-			    }
+				// Create the autocomplete object.
+		    if (Drupal.settings.address_autocomplete.country_selected) {
+					autocomplete = new google.maps.places.Autocomplete(
+		    	/** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+		    	{types: ['address'], componentRestrictions: {country: Drupal.settings.address_autocomplete.country_selected}});
+		    }
+		    else {
+		    	autocomplete = new google.maps.places.Autocomplete(
+		    	/** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+		    	{types: ['address']});
+		    }
 			    
 			  // When the user selects an address from the dropdown, populate the address
 			  // fields in the form.

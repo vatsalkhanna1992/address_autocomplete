@@ -1,0 +1,5 @@
+/* Hide 'powered by Google' disclaimer. */
+.pac-container::after {
+  background-image: none !important;
+  height: 0;
+}
