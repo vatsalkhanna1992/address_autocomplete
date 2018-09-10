@@ -2,3 +2,6 @@ name = Address Autocomplete
 description = Module uses Google Places API for the address field.
 core = 7.x
 package = custom
+version = 1.0
+
+dependencies[] = webform
